@@ -3,4 +3,4 @@ from .auth import *
 from .token import *
 from .prospects import *
 from .campaigns import *
-from .prospectsFiles import *
+from .prospects_files import *

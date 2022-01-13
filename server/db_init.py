@@ -14,11 +14,11 @@ if __name__ == "__main__":
 
     if len(args) > 1 and args[1] == "drop":
         ordered_drop: List[Table] = [
+            User.__table__,
+            ProspectFiles.__table__,
+            Prospect.__table__,
             CampaignProspect.__table__,
             Campaign.__table__,
-            Prospect.__table__,
-            ProspectFiles.__table__,
-            User.__table__,
         ]
         print("\n-- Dropping All Tables --")
         for t in ordered_drop:

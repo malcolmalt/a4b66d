@@ -4,17 +4,18 @@ from fastapi.datastructures import UploadFile
 
 from pydantic import BaseModel
 
+
 class ProspectFile(BaseModel):
     id: int
     file: str
     total_rows: int
     prospects_before_upload: int
-    preview: List[List[str]]
     created_at: datetime
     updated_at: datetime
 
     class Config:
         orm_mode = True
+
 
 class ProspectFileAddToDatabase(BaseModel):
     email_index: int
@@ -25,14 +26,15 @@ class ProspectFileAddToDatabase(BaseModel):
 
 
 class ProspectFileUploadResponse(BaseModel):
-    #upload response
+    # upload response
     id: int
     preview: List[List[str]]
+
 
 class ProspectFileAddCSVResponse(BaseModel):
     id: int
     total_rows: int
-    done: int
+
 
 class ProspectFileProgressResponse(BaseModel):
     total: int
