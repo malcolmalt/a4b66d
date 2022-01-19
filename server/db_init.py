@@ -5,7 +5,7 @@ from sqlalchemy.sql.schema import Table
 
 from api.dependencies.db import get_db
 from api.database import Base, engine
-from api.models import User, Prospect, Campaign, CampaignProspect
+from api.models import User, Prospect, Campaign, CampaignProspect, ProspectFiles
 
 
 if __name__ == "__main__":
@@ -14,10 +14,11 @@ if __name__ == "__main__":
 
     if len(args) > 1 and args[1] == "drop":
         ordered_drop: List[Table] = [
+            User.__table__,
+            ProspectFiles.__table__,
+            Prospect.__table__,
             CampaignProspect.__table__,
             Campaign.__table__,
-            Prospect.__table__,
-            User.__table__,
         ]
         print("\n-- Dropping All Tables --")
         for t in ordered_drop:
